@@ -1,0 +1,7 @@
+{
+  "name": "Smart Recipe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
