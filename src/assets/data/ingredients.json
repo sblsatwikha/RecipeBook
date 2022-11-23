@@ -1,0 +1,8 @@
+[
+    {
+        "Meat" : ["Chicken", "Beacon", "Pork", "Salami", "Tuna"],
+        "Vegetables" : ["Green Pepper", "Red Pepper", "Banana Pepper", "Cucumbers", "Carrots", "Lettuce", "Spinach", "Red Onions", "Spring Mix"],
+        "Eggs and Dairy": ["Eggs", "Chacolate Milk", "Skimmed Milk", "2% Reduced Milk"],
+        "Time": ["15 min", "30 min", "45 min", "1 hr", "2 hrs"]
+    }
+]

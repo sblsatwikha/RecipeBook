@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
+import { myPantry } from './my-pantry.page';
 
-import { ExploreContainerComponent } from './explore-container.component';
-
-describe('ExploreContainerComponent', () => {
-  let component: ExploreContainerComponent;
-  let fixture: ComponentFixture<ExploreContainerComponent>;
+describe('myPantry', () => {
+  let component: myPantry;
+  let fixture: ComponentFixture<myPantry>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ExploreContainerComponent],
+      declarations: [myPantry],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ExploreContainerComponent);
+    fixture = TestBed.createComponent(myPantry);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
