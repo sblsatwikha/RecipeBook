@@ -21,14 +21,11 @@ export class myPantry {
     this.http.get('assets/data/ingredients.json').subscribe((data)=>{
       this.ingredientsList = data;
       this.ingredientsType = Object.keys(this.ingredientsList[0]);
-      console.log(this.ingredientsList[0]);
-      console.log(this.ingredientsType);
       this.ingredientsType.forEach((ingredientType: string) => {
         this.ingredientsList[0][ingredientType].forEach((ingredient: string) => {
           this.isSelected[ingredient] = false;
         });
       });
-      console.log(this.isSelected);
     })
   }
 
@@ -39,6 +36,12 @@ export class myPantry {
   onClickIngredients(ingred: string){
     if(!this.chosenIngredients.includes(ingred)){
       this.chosenIngredients.push(ingred);
+    }
+    else{
+      const ingredIndex = this.chosenIngredients.indexOf(ingred);
+      if (ingredIndex !== -1) {
+        this.chosenIngredients.splice(ingredIndex, 1);
+      }
     }
     this.isSelected[ingred] = !this.isSelected[ingred];
     console.log(this.chosenIngredients);
