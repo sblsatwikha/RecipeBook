@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="width: 10%; float: left;">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+    </div>
+    
+    <div style="width: 80%; height: 100%; display:inline-block; margin-top: 1%;">
+      <ion-title class="ion-text-center">{{dish.dishName}}</ion-title>
+    </div>
+
+    <div style="width: 10%;">
+      <ion-buttons slot="end">
+      </ion-buttons>
+    </div>
+    
+  </ion-toolbar>
+  <ion-buttons slot="end">
+  </ion-buttons>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card style="margin: 5%;">
+    <br><br>
+    <div class="ion-text-center">
+      <img src={{dish.image}} style="height: 200px; width:200px; ">
+    </div>
+    <br><br>
+    <div style="margin: 5%;">
+      {{dish.recipe}}
+    </div>
+
+  </ion-card>
+
+  <div style="text-align: center;">
+    <ion-button color="primary" (click)="findMore()"> Find More </ion-button>
+  </div>
+</ion-content>

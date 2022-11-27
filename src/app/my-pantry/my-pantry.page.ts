@@ -10,14 +10,10 @@ import { Router } from '@angular/router';
 export class myPantry {
   ingredientsList: any = [];
   ingredientsType: any =[];
-  chosenIngredients: String[] = [];
   isSelected: {[key: string]: any} = {};
 
+
   constructor(private http: HttpClient, private router: Router) {
-
-  }
-
-  ngOnInit(){
     this.http.get('assets/data/ingredients.json').subscribe((data)=>{
       this.ingredientsList = data;
       this.ingredientsType = Object.keys(this.ingredientsList[0]);
@@ -29,22 +25,20 @@ export class myPantry {
     })
   }
 
+  ngOnInit(){}
+
   findDishes(){
-    this.router.navigate(['show-dishes',{chosenIngredients: this.chosenIngredients}])
+    let chosenIngredients: String[] = [];
+    Object.keys(this.isSelected).forEach((ingredient) => {
+      if( this.isSelected[ingredient] == true )
+        chosenIngredients.push(ingredient.toLowerCase());
+    })
+    console.log(chosenIngredients);
+    this.router.navigate(['show-dishes',{chosenIngredients: JSON.stringify(chosenIngredients)}])
   }
 
   onClickIngredients(ingred: string){
-    if(!this.chosenIngredients.includes(ingred)){
-      this.chosenIngredients.push(ingred);
-    }
-    else{
-      const ingredIndex = this.chosenIngredients.indexOf(ingred);
-      if (ingredIndex !== -1) {
-        this.chosenIngredients.splice(ingredIndex, 1);
-      }
-    }
     this.isSelected[ingred] = !this.isSelected[ingred];
-    console.log(this.chosenIngredients);
     console.log(this.isSelected);
   }
 

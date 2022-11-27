@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'show-dishes',
     loadChildren: () => import('./show-dishes/show-dishes.module').then( m => m.ShowDishesPageModule)
+  },
+  {
+    path: 'display-recipe',
+    loadChildren: () => import('./display-recipe/display-recipe.module').then( m => m.DisplayRecipePageModule)
   }
 ];
 @NgModule({

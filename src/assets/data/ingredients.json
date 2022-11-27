@@ -1,8 +1,16 @@
 [
     {
-        "Meat" : ["Chicken", "Beacon", "Pork", "Salami", "Tuna"],
-        "Vegetables" : ["Green Pepper", "Red Pepper", "Banana Pepper", "Cucumbers", "Carrots", "Lettuce", "Spinach", "Red Onions", "Spring Mix"],
-        "Eggs and Dairy": ["Eggs", "Chacolate Milk", "Skimmed Milk", "2% Reduced Milk"],
-        "Time": ["15 min", "30 min", "45 min", "1 hr", "2 hrs"]
+        "Meat" : ["Chicken", "Beacon", "Pork", "Salami", "Tuna","Deli Ham","Pepporini","Beef"],
+        "Vegetables" : ["Green Pepper", "Red Pepper", "Potatoes", "Parsley","Peas","Watermelon Radish","Broccoli","Red Cabbage","Edamame","Cucumbers", "Carrots","Avocado","Pico de gallo","Lettuce", "Mushrooms","Olives","Romaine","Chickpeas","Spinach", "Red Onions", "Spring Mix","Tomatoes","Black Beans","Celery Rib","Marinated Artichoke Hearts","Garlic","Ginger","Bell Pepper","Radish","Onions","Cilantro"],
+        "Eggs and Dairy": ["Eggs", "Choclate Milk", "Skimmed Milk", "2% Reduced Milk","Whole Milk","Butter","Milk","Buttermilk","Milk Powder","IceCream"],
+        "Grains":["Rice","White Rice","Popcorn Kernels","Cereals","Flour","Noodles","Corn Starch","Chow Mein Noodles"],
+        "Oils":["Olive Oil","Oil","Cooking Oil","SunFlower Oil","Sesame Oil"],
+        "Pre Baked Dough":["Pizza Crust","Buns","Tortillas","Pitas","Bread","Baking powder","Baking Soda","Bread Crumps"],
+        "Sauces":["Pesto","Cranberry Sauce","Ketchup","Soya sauce","SpicySauce"],
+        "Cheeses":["Cheese","Parmesan Cheese","Mozzarella Cheese","Grated Cheese","Ricotta","Cream Cheese","cheddar","American"],
+        "Dressings":["Mayonnaise","Vinegar","LimeJuice","Sour Cream","Lemon Juice","Maple Syrup","Caramel Syrup","Vanila Extract","Apple Cider Vinegar","Choclate Syrup","Honey","Jams","Whipped Cream"],
+        "Basic essentials":["Turmeric","Salt","Poultry Seasonings","Garlic Powder","Pepper","Cinnamon","Italian seasonig","Oregano","Brown Sugar","Mustard","Ginger Slices"],
+        "Calories":[50,100,150,250,500,800,1000],
+        "Time": [10,20,30,60]
     }
 ]
