@@ -12,7 +12,7 @@
 
       <div *ngFor="let ingredType of ingredientsType" > 
         <u style="font-size: 20px;"> {{ingredType}}: </u>   <br> <br>
-        <ion-button *ngFor="let ingred of ingredientsList[0][ingredType]" (click)="onClickIngredients(ingred)" [color]="isSelected[ingred] ? 'primary' : 'light'" style="padding-left: 5px;">
+        <ion-button *ngFor="let ingred of ingredientsList[0][ingredType]" (click)="onClickIngredients(ingred, ingredType)" [color]="isSelected[ingredType].includes(ingred) ? 'primary' : 'light'" style="padding-left: 5px;">
           {{ingred}}
         </ion-button>
         <br><br>

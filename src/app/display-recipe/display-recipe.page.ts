@@ -14,11 +14,7 @@ export class DisplayRecipePage implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
-      
       this.dish = JSON.parse(params['dish']);
-      console.log("display-recipe", this.dish);
-      console.log(JSON.parse(params['dish']));
-
     })
   }
 
