@@ -1,14 +1,14 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-title class="ion-text-center"> My Pantry </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content color="tertiary" [fullscreen]="true">
   
     <!-- <ion-searchbar show-clear-button="always" placeholder=" Search Ingredients" color ='light' style="height: 10%;"></ion-searchbar>  -->
 
-    <ion-card style="background-color: white; padding: 2%; height: 91%; overflow-y: auto; ">
+    <ion-card style="background-color: white; padding: 2%; height: 90%; overflow-y: auto; border-radius: 15px ; ">
 
       <div *ngFor="let ingredType of ingredientsType" > 
         <u style="font-size: 20px;"> {{ingredType}}: </u>   <br> <br>
@@ -21,7 +21,9 @@
     </ion-card>
 
     <div style="text-align: center; height: 9%;">
-      <ion-button color="success" (click)="findDishes()"> Find Dishes </ion-button>
+      <ion-button color="success" style="width: 40%;" (click)="findDishes()"> 
+        <ion-text> Find Dishes </ion-text> 
+      </ion-button>
     </div>
     
 </ion-content>

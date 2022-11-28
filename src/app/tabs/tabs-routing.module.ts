@@ -16,8 +16,8 @@ const routes: Routes = [
         loadChildren: () => import('../my-pantry/my-pantry.module').then(m => m.myPantryPageModule)
       },
       {
-        path: 'account',
-        loadChildren: () => import('../account/account.module').then(m => m.accountPageModule)
+        path: 'my-recipes',
+        loadChildren: () => import('../my-recipes/account.module').then(m => m.accountPageModule)
       },
       {
         path: '',
