@@ -26,7 +26,6 @@ export class ShowDishesPage implements OnInit {
     })
     
     if (window.localStorage.getItem("getAllDishes") == null) {
-      console.log("iffffffff")
       this.dishesService.getDishes().subscribe((data: any) => {
         allDishes = data["dishes"];
         window.localStorage.setItem("getAllDishes", JSON.stringify(allDishes));
@@ -73,7 +72,6 @@ export class ShowDishesPage implements OnInit {
       })
     }
     else{
-      console.log("elseeee");
       allDishes = JSON.parse(window.localStorage.getItem("getAllDishes")!);
       allDishes.forEach((dish: Dish) => {
         if(this.time == -1 && this.calories == -1){
@@ -120,7 +118,6 @@ export class ShowDishesPage implements OnInit {
   }
 
   showRecipe(dish: Dish){
-    console.log("show-dishes", JSON.stringify(dish));
     this.router.navigate(['display-recipe',{dish: JSON.stringify(dish)}]);
   }
 
