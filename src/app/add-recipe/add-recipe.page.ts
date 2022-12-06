@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder } from "@angular/forms";
 import { Router } from '@angular/router';
 import { Dish } from '../models/dish.model';
 import { myDishes } from '../my-recipes/account.page';
@@ -18,7 +18,8 @@ export class AddRecipePage implements OnInit {
   ngOnInit() {}
 
   submitForm(dish: Dish) {
-    console.log(dish.dishName);
+    console.log(dish.calories);
+    console.log(dish.time);
     myDishes.push({
       "ID": dish.dishName,
       "image": "assets/data/myRecipeDefault.png",
@@ -29,7 +30,7 @@ export class AddRecipePage implements OnInit {
       "recipe": dish.recipe,
       "servings": dish.servings,
       "isFavorite": false,
-      "findMore": "https://www.youtube.com/results?search_query="+ dish.dishName +"recipe"
+      "findMore": "https://www.youtube.com/results?search_query="+ dish.dishName +" recipe"
     })
     this.router.navigate(['tabs/my-recipes',{}])
   }

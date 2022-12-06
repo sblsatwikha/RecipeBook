@@ -35,7 +35,7 @@
         
         <ion-item lines="full">
           <ion-label position="floating">Calories</ion-label>
-          <ion-input name="calories" type="text" required [(ngModel)]="dish.calories" #nameCtrl="ngModel"></ion-input>
+          <ion-input name="calories" type="number" required [(ngModel)]="dish.calories" #nameCtrl="ngModel"></ion-input>
         </ion-item>
         <ion-text color="tertiary" *ngIf="!nameCtrl.valid && nameCtrl.touched">
           <ion-text color="tertiary">Calories required</ion-text>
@@ -43,7 +43,7 @@
     
         <ion-item lines="full">
           <ion-label position="floating"> Preprataion Time</ion-label>
-          <ion-input name="preprataionTime" type="text" required [(ngModel)]="dish.time" #nameCtrl="ngModel"></ion-input>
+          <ion-input name="time" type="number" required [(ngModel)]="dish.time" #nameCtrl="ngModel"></ion-input>
         </ion-item>
         <ion-text color="tertiary" *ngIf="!nameCtrl.valid && nameCtrl.touched">
           <ion-text color="tertiary">Prep Time required</ion-text>

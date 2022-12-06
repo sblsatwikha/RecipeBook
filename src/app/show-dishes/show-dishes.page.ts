@@ -29,52 +29,28 @@ export class ShowDishesPage implements OnInit {
       this.dishesService.getDishes().subscribe((data: any) => {
         allDishes = data["dishes"];
         window.localStorage.setItem("getAllDishes", JSON.stringify(allDishes));
-        allDishes.forEach((dish: Dish) => {
-          if(this.time == -1 && this.calories == -1){
-            for (const ingred in dish["Ingredients"]) {
-              if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
-                this.dishesList.push(dish);
-                break;
-              }
-            }
-          }
-          else if(this.time == -1){
-            if(dish["calories"] <= this.calories){
-              for (const ingred in dish["Ingredients"]) {
-                if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
-                  this.dishesList.push(dish);
-                  break;
-                }
-              }
-            }
-          }
-          else if(this.calories == -1){
-            if(dish["time"] <= this.time){
-              for (const ingred in dish["Ingredients"]) {
-                if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
-                  this.dishesList.push(dish);
-                  break;
-                }
-              }
-            }
-          }
-          else {
-            if(dish["time"] <= this.time && dish["calories"] <= this.calories){
-              for (const ingred in dish["Ingredients"]) {
-                if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
-                  this.dishesList.push(dish);
-                  break;
-                }
-              }
-            }
-          }
-        });
+        this.display(allDishes);
       })
     }
     else{
       allDishes = JSON.parse(window.localStorage.getItem("getAllDishes")!);
-      allDishes.forEach((dish: Dish) => {
-        if(this.time == -1 && this.calories == -1){
+      this.display(allDishes);
+    }    
+    
+  }
+
+  display(allDishes: Dish[]){
+    allDishes.forEach((dish: Dish) => {
+      if(this.time == -1 && this.calories == -1){
+        for (const ingred in dish["Ingredients"]) {
+          if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
+            this.dishesList.push(dish);
+            break;
+          }
+        }
+      }
+      else if(this.time == -1){
+        if(dish["calories"] <= this.calories){
           for (const ingred in dish["Ingredients"]) {
             if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
               this.dishesList.push(dish);
@@ -82,39 +58,28 @@ export class ShowDishesPage implements OnInit {
             }
           }
         }
-        else if(this.time == -1){
-          if(dish["calories"] <= this.calories){
-            for (const ingred in dish["Ingredients"]) {
-              if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
-                this.dishesList.push(dish);
-                break;
-              }
+      }
+      else if(this.calories == -1){
+        if(dish["time"] <= this.time){
+          for (const ingred in dish["Ingredients"]) {
+            if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
+              this.dishesList.push(dish);
+              break;
             }
           }
         }
-        else if(this.calories == -1){
-          if(dish["time"] <= this.time){
-            for (const ingred in dish["Ingredients"]) {
-              if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
-                this.dishesList.push(dish);
-                break;
-              }
+      }
+      else {
+        if(dish["time"] <= this.time && dish["calories"] <= this.calories){
+          for (const ingred in dish["Ingredients"]) {
+            if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
+              this.dishesList.push(dish);
+              break;
             }
           }
         }
-        else {
-          if(dish["time"] <= this.time && dish["calories"] <= this.calories){
-            for (const ingred in dish["Ingredients"]) {
-              if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
-                this.dishesList.push(dish);
-                break;
-              }
-            }
-          }
-        }
-      });
-    }    
-    
+      }
+    });
   }
 
   showRecipe(dish: Dish){
