@@ -3,7 +3,6 @@ import { DishesServiceService } from 'src/app/dishesService/dishes-service.servi
 import { Dish } from '../models/dish.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { Console } from 'console';
 
 export let allDishes: Dish[];
 @Component({
@@ -14,56 +13,76 @@ export let allDishes: Dish[];
 export class ShowDishesPage implements OnInit {
   ingredientsList: String[] = [];
   dishesList: Dish[] = [];
+  time: any = -1;
+  calories: any = -1;
   
   constructor(private dishesService: DishesServiceService, private activatedRoute: ActivatedRoute, private router: Router, private alertController: AlertController) {}
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.ingredientsList = JSON.parse(params['chosenIngredients']);
+      this.time = params['time']
+      this.calories = params['calories']
     })
     
     if (window.localStorage.getItem("getAllDishes") == null) {
-      console.log("iffffffff")
-      console.log("1st");
-
       this.dishesService.getDishes().subscribe((data: any) => {
-        console.log("data", data["dishes"]);
-        window.localStorage.setItem("getAllDishes", JSON.stringify(data["dishes"]));
-        allDishes = JSON.parse(window.localStorage.getItem("getAllDishes")!);
-        console.log("D1", allDishes)
-        JSON.parse(window.localStorage.getItem("getAllDishes")!).forEach((dish: Dish) => {
+        allDishes = data["dishes"];
+        window.localStorage.setItem("getAllDishes", JSON.stringify(allDishes));
+        this.display(allDishes);
+      })
+    }
+    else{
+      allDishes = JSON.parse(window.localStorage.getItem("getAllDishes")!);
+      this.display(allDishes);
+    }    
+    
+  }
+
+  display(allDishes: Dish[]){
+    allDishes.forEach((dish: Dish) => {
+      if(this.time == -1 && this.calories == -1){
+        for (const ingred in dish["Ingredients"]) {
+          if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
+            this.dishesList.push(dish);
+            break;
+          }
+        }
+      }
+      else if(this.time == -1){
+        if(dish["calories"] <= this.calories){
           for (const ingred in dish["Ingredients"]) {
             if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
               this.dishesList.push(dish);
               break;
             }
           }
-
-        });
-
-        console.log("4th");
-        
-      })
-      console.log("5th");
-    }
-    else{
-      allDishes = JSON.parse(window.localStorage.getItem("getAllDishes")!);
-      console.log("elseeee");
-      JSON.parse(window.localStorage.getItem("getAllDishes")!).forEach((dish: Dish) => {
-        for (const ingred in dish["Ingredients"]) {
-          if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
-            console.log(dish);
-            this.dishesList.push(dish);
-            break;
+        }
+      }
+      else if(this.calories == -1){
+        if(dish["time"] <= this.time){
+          for (const ingred in dish["Ingredients"]) {
+            if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
+              this.dishesList.push(dish);
+              break;
+            }
           }
         }
-      });
-    }    
-    
+      }
+      else {
+        if(dish["time"] <= this.time && dish["calories"] <= this.calories){
+          for (const ingred in dish["Ingredients"]) {
+            if (this.ingredientsList.includes(dish["Ingredients"][ingred].toLowerCase())) {
+              this.dishesList.push(dish);
+              break;
+            }
+          }
+        }
+      }
+    });
   }
 
   showRecipe(dish: Dish){
-    console.log("show-dishes", JSON.stringify(dish));
     this.router.navigate(['display-recipe',{dish: JSON.stringify(dish)}]);
   }
 

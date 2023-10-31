@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title class="ion-text-center">Add My Recipe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="height: 100%;" color="tertiary">
+  <ion-card style="height: 95%; border-radius: 15px;">
+    <form #f="ngForm" (ngSubmit)="submitForm(f.value)" novalidate style="height: 100%;">
+
+      <div style="height: 85%;">
+        <ion-item lines="full">
+          <ion-label position="floating">Dish Name</ion-label>
+          <ion-input name="dishName" type="text" required [(ngModel)]="dish.dishName" #nameCtrl="ngModel"></ion-input>
+        </ion-item>
+        <ion-text color="tertiary" *ngIf="!nameCtrl.valid && nameCtrl.touched">
+          <ion-text color="tertiary">Dish Name required</ion-text>
+        </ion-text>
+  
+        <ion-item lines="full">
+          <ion-label position="floating">Ingredients</ion-label>
+          <ion-textarea [autoGrow]="true" name="Ingredients" type="text" required [(ngModel)]="dish.Ingredients" #nameCtrl="ngModel"></ion-textarea>
+        </ion-item>
+        <ion-text color="tertiary" *ngIf="!nameCtrl.valid && nameCtrl.touched">
+          <ion-text color="tertiary">Ingredients required</ion-text>
+        </ion-text>
+  
+        <ion-item lines="full">
+          <ion-label position="floating">Recipe</ion-label>
+          <ion-textarea [autoGrow]="true" name="recipe" type="text" required [(ngModel)]="dish.recipe" #nameCtrl="ngModel"></ion-textarea>
+        </ion-item>
+        <ion-text color="tertiary" *ngIf="!nameCtrl.valid && nameCtrl.touched">
+          <ion-text color="tertiary">Recipe required</ion-text>
+        </ion-text>
+        
+        <ion-item lines="full">
+          <ion-label position="floating">Calories</ion-label>
+          <ion-input name="calories" type="number" required [(ngModel)]="dish.calories" #nameCtrl="ngModel"></ion-input>
+        </ion-item>
+        <ion-text color="tertiary" *ngIf="!nameCtrl.valid && nameCtrl.touched">
+          <ion-text color="tertiary">Calories required</ion-text>
+        </ion-text>
+    
+        <ion-item lines="full">
+          <ion-label position="floating"> Preprataion Time</ion-label>
+          <ion-input name="time" type="number" required [(ngModel)]="dish.time" #nameCtrl="ngModel"></ion-input>
+        </ion-item>
+        <ion-text color="tertiary" *ngIf="!nameCtrl.valid && nameCtrl.touched">
+          <ion-text color="tertiary">Prep Time required</ion-text>
+        </ion-text>
+        
+        <ion-item lines="full">
+          <ion-label position="floating">Serves</ion-label>
+          <ion-input name="servings" type="text" required [(ngModel)]="dish.servings" #nameCtrl="ngModel"></ion-input>
+        </ion-item>
+        <ion-text color="tertiary" *ngIf="!nameCtrl.valid && nameCtrl.touched">
+          <ion-text color="tertiary">Serves required</ion-text>
+        </ion-text>
+      </div>
+      
+
+      <div style="height: 15%;">
+        <ion-button (click)="cancel()" color="tertiary" style="margin-left: 10%; width: 35%;"> Cancel </ion-button>
+        <ion-button type="submit" color="tertiary" style="float:right; margin-right: 10%; width: 35%;"> Save </ion-button>
+      </div>
+    </form>
+  </ion-card>
+</ion-content>

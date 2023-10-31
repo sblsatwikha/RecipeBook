@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'display-recipe',
     loadChildren: () => import('./display-recipe/display-recipe.module').then( m => m.DisplayRecipePageModule)
+  },
+  {
+    path: 'add-recipe',
+    loadChildren: () => import('./add-recipe/add-recipe.module').then( m => m.AddRecipePageModule)
   }
 ];
 @NgModule({

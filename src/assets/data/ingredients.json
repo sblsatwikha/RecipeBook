@@ -9,8 +9,8 @@
         "Sauces":["Pesto","Cranberry Sauce","Ketchup","Soya sauce","SpicySauce"],
         "Cheeses":["Cheese","Parmesan Cheese","Mozzarella Cheese","Grated Cheese","Ricotta","Cream Cheese","cheddar","American"],
         "Dressings":["Mayonnaise","Vinegar","LimeJuice","Sour Cream","Lemon Juice","Maple Syrup","Caramel Syrup","Vanila Extract","Apple Cider Vinegar","Choclate Syrup","Honey","Jams","Whipped Cream"],
-        "Basic essentials":["Turmeric","Salt","Poultry Seasonings","Garlic Powder","Pepper","Cinnamon","Italian seasonig","Oregano","Brown Sugar","Mustard","Ginger Slices"],
+        "Basic Essentials":["Turmeric","Salt","Poultry Seasonings","Garlic Powder","Pepper","Cinnamon","Italian seasonig","Oregano","Brown Sugar","Mustard","Ginger Slices"],
         "Calories":[50,100,150,250,500,800,1000],
-        "Time": [10,20,30,60]
+        "Time in Minutes": [10,20,30,60]
     }
 ]

@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <div style="width: 10%; float: left;">
       <ion-buttons slot="start">
         <ion-back-button></ion-back-button>
       </ion-buttons>
     </div>
     
-    <div style="width: 80%; height: 100%; display:inline-block; margin-top: 1%;">
+    <div style="width: 80%; height: 100%; vertical-align: middle; ">
       <ion-title class="ion-text-center">{{dish.dishName}}</ion-title>
     </div>
 
@@ -21,7 +21,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card style="margin: 5%;">
+  <ion-card style="margin: 5%; border-radius: 15px;">
     <br><br>
     <div class="ion-text-center">
       <img src={{dish.image}} style="height: 200px; width:200px; ">
