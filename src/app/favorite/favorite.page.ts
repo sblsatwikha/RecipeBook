@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { DishesServiceService } from '../dishesService/dishes-service.service';
@@ -13,7 +14,7 @@ import { allDishes } from '../show-dishes/show-dishes.page';
 export class favoritePage {
 
   favDishes: Dish[] = [];
-  constructor(private router: Router, private dishesService: DishesServiceService, private alertController: AlertController) {}
+  constructor(private router: Router, private dishesService: DishesServiceService, private alertController: AlertController, public platform: Platform) {}
 
   ionViewWillEnter(){
     this.getFavDishes();
@@ -21,7 +22,15 @@ export class favoritePage {
 
   getFavDishes(){
     this.favDishes = [];
-    JSON.parse(window.localStorage.getItem("getAllDishes")!).forEach((dish: Dish) => {
+    // didnt test
+    var dishesList;
+    if(this.platform.is('ios')){
+      dishesList = allDishes
+    }
+    else{
+      dishesList = JSON.parse(window.localStorage.getItem("getAllDishes")!)
+    }
+    dishesList.forEach((dish: Dish) => {
       if(dish.isFavorite){
         this.favDishes.push(dish);
       }
